@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giorgio Saracco | Supply Chain & Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --white: #F5F5F0;
+  --volt: #CDFF00;
+  --grey: #888;
+  --mid: #1A1A1A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: 20px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white); text-decoration: none;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--grey); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--volt); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; display: block; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 88px;
+  position: relative; overflow: hidden;
+  background: var(--black);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 35%, rgba(205,255,0,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 15% 75%, rgba(255,255,255,0.025) 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 80%);
+}
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--volt); margin-bottom: 20px;
+}
+.hero-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(68px, 11.5vw, 168px);
+  line-height: 0.88; text-transform: uppercase;
+  letter-spacing: -0.02em; margin-bottom: 40px;
+}
+.hero-name .first { display: block; color: var(--white); }
+.hero-name .last {
+  display: block; color: transparent;
+  -webkit-text-stroke: 2px rgba(245,245,240,0.9);
+}
+.hero-bottom {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; flex-wrap: wrap; gap: 32px;
+}
+.hero-desc {
+  font-size: 15px; font-weight: 300;
+  color: rgba(245,245,240,0.5);
+  max-width: 380px; line-height: 1.7;
+}
+.hero-pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-start; }
+.pill {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 5px 13px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 2px; color: rgba(245,245,240,0.5);
+}
+.hero-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--volt); text-decoration: none;
+  border-bottom: 1px solid var(--volt);
+  padding-bottom: 3px;
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px; transition: gap 0.3s;
+  white-space: nowrap;
+}
+.hero-cta:hover { gap: 18px; }
+
+/* CHAPTER SECTIONS */
+.chapter {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.chapter.reverse { direction: rtl; }
+.chapter.reverse > * { direction: ltr; }
+
+.chapter-visual {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.chapter-visual-bg {
+  position: absolute; inset: 0;
+}
+.chapter-vis-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(80px, 10vw, 150px);
+  line-height: 0.85; text-transform: uppercase;
+  letter-spacing: -0.04em; text-align: center;
+  position: relative; z-index: 2;
+  pointer-events: none;
+  padding: 20px;
+}
+.chapter-num {
+  position: absolute; bottom: 32px; right: 32px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: 100px;
+  line-height: 1; letter-spacing: -0.05em;
+  color: rgba(255,255,255,0.05);
+  pointer-events: none; z-index: 1;
+}
+.chapter-content {
+  padding: 120px 72px 80px 56px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+}
+.chapter.reverse .chapter-content { padding: 120px 56px 80px 72px; }
+
+.chapter-meta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--grey); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.vdot {
+  width: 4px; height: 4px;
+  border-radius: 50%; flex-shrink: 0;
+}
+.chapter-role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 3.8vw, 52px);
+  line-height: 1.02; text-transform: uppercase;
+  letter-spacing: -0.01em; margin-bottom: 6px;
+}
+.chapter-co {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 14px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.chapter-tags {
+  display: flex; gap: 7px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.ctag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 2px;
+}
+
+/* ACCORDION */
+.accs { list-style: none; }
+.acc { border-top: 1px solid rgba(255,255,255,0.07); }
+.acc:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.acc-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; cursor: pointer; gap: 16px;
+  user-select: none;
+}
+.acc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.acc-icon {
+  font-size: 20px; font-weight: 300;
+  flex-shrink: 0; line-height: 1;
+  transition: transform 0.3s;
+}
+.acc.open .acc-icon { transform: rotate(45deg); }
+.acc-body {
+  font-size: 14px; font-weight: 300;
+  color: rgba(245,245,240,0.58);
+  line-height: 1.68;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+.acc.open .acc-body { max-height: 300px; padding-bottom: 14px; }
+
+/* CHAPTER THEMES */
+#football .chapter-visual-bg { background: linear-gradient(145deg, #0C1A0C 0%, #182A18 100%); }
+#football .chapter-vis-text { color: rgba(100,200,50,0.12); }
+#football .vdot { background: #7CFC00; }
+#football .chapter-co { color: #7CFC00; }
+#football .ctag { background: rgba(40,90,30,0.45); color: #A8FF78; }
+#football .acc-icon { color: #7CFC00; }
+
+#strategy .chapter-visual-bg { background: linear-gradient(145deg, #090914 0%, #131328 100%); }
+#strategy .chapter-vis-text { color: rgba(100,100,255,0.1); }
+#strategy .vdot { background: #7B7BFF; }
+#strategy .chapter-co { color: #7B7BFF; }
+#strategy .ctag { background: rgba(30,30,90,0.5); color: #A0A0FF; }
+#strategy .acc-icon { color: #7B7BFF; }
+
+#premium .chapter-visual-bg { background: linear-gradient(145deg, #180808 0%, #2C1010 100%); }
+#premium .chapter-vis-text { color: rgba(255,100,100,0.1); }
+#premium .vdot { background: #FF7070; }
+#premium .chapter-co { color: #FF7070; }
+#premium .ctag { background: rgba(90,20,20,0.5); color: #FFA0A0; }
+#premium .acc-icon { color: #FF7070; }
+
+#converse .chapter-visual-bg { background: linear-gradient(145deg, #180E00 0%, #2C1A00 100%); }
+#converse .chapter-vis-text { color: rgba(255,160,50,0.1); }
+#converse .vdot { background: #FFB347; }
+#converse .chapter-co { color: #FFB347; }
+#converse .ctag { background: rgba(90,45,0,0.5); color: #FFD090; }
+#converse .acc-icon { color: #FFB347; }
+
+#origins .chapter-visual-bg { background: linear-gradient(145deg, #070A12 0%, #0E1220 100%); }
+#origins .chapter-vis-text { color: rgba(100,180,240,0.1); }
+#origins .vdot { background: #87CEEB; }
+#origins .chapter-co { color: #87CEEB; }
+#origins .ctag { background: rgba(20,50,80,0.5); color: #ADD8E6; }
+#origins .acc-icon { color: #87CEEB; }
+
+/* IMPACT */
+#impact {
+  background: var(--volt);
+  padding: 110px 48px 80px;
+  position: relative; overflow: hidden;
+}
+.impact-label-top {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(0,0,0,0.45); margin-bottom: 16px;
+}
+.impact-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 9vw, 112px);
+  line-height: 0.88; text-transform: uppercase;
+  color: var(--black); margin-bottom: 72px;
+  letter-spacing: -0.02em;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.istat {
+  background: rgba(0,0,0,0.055);
+  padding: 44px 36px;
+  transition: background 0.25s;
+  cursor: default;
+}
+.istat:hover { background: rgba(0,0,0,0.11); }
+.istat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(42px, 5.5vw, 76px);
+  line-height: 1; color: var(--black);
+  margin-bottom: 8px; letter-spacing: -0.02em;
+}
+.istat-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: rgba(0,0,0,0.55); line-height: 1.45;
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  padding: 88px 48px 40px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.footer-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 9vw, 108px);
+  line-height: 0.88; text-transform: uppercase;
+  margin-bottom: 40px; letter-spacing: -0.02em;
+}
+.footer-links {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--grey); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--volt); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-copy {
+  font-size: 11px; color: rgba(255,255,255,0.25);
+  letter-spacing: 0.06em;
+}
+
+/* REVEAL ANIMATIONS */
+.rv { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.rv-l { opacity: 0; transform: translateX(-36px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.rv-r { opacity: 0; transform: translateX(36px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.rv.in, .rv-l.in, .rv-r.in { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.05s; }
+.d2 { transition-delay: 0.12s; }
+.d3 { transition-delay: 0.2s; }
+.d4 { transition-delay: 0.28s; }
+.d5 { transition-delay: 0.36s; }
+.d6 { transition-delay: 0.44s; }
+.d7 { transition-delay: 0.52s; }
+.d8 { transition-delay: 0.6s; }
+.d9 { transition-delay: 0.68s; }
+
+/* MOBILE */
+@media (max-width: 860px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,10,10,0.98);
+    align-items: center; justify-content: center; gap: 32px;
+    z-index: 99;
+  }
+  .nav-links.open a { font-size: 28px; letter-spacing: 0.1em; }
+  .hamburger { display: flex; }
+  #hero { padding: 0 20px 60px; }
+  .chapter { grid-template-columns: 1fr; min-height: auto; }
+  .chapter.reverse { direction: ltr; }
+  .chapter-visual { min-height: 280px; }
+  .chapter-content { padding: 60px 24px 56px; }
+  .chapter.reverse .chapter-content { padding: 60px 24px 56px; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  #impact { padding: 80px 20px 60px; }
+  footer { padding: 60px 20px 32px; }
+  .footer-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) {
+  .impact-grid { grid-template-columns: 1fr; }
+  .istat { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">Giorgio Saracco</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#football">Football</a></li>
+    <li><a href="#strategy">Strategy</a></li>
+    <li><a href="#premium">Premium</a></li>
+    <li><a href="#converse">Converse</a></li>
+    <li><a href="#origins">Origins</a></li>
+    <li><a href="#impact">Impact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div style="position:relative;z-index:2;">
+    <div class="hero-eyebrow rv d1">Supply Chain &amp; Operations · Nike EMEA · 9 Years</div>
+
+    <h1 class="hero-name rv d2">
+      <span class="first">Giorgio</span>
+      <span class="last">Saracco</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-desc rv d3">
+        Operations &amp; Supply Chain professional. 9 years ensuring healthy inventory and enabling business growth at Nike and Converse EMEA — through process optimization, cross-functional planning, and AI-powered tools.
+      </p>
+      <div class="hero-pills rv d4">
+        <span class="pill">EMEA</span>
+        <span class="pill">Football</span>
+        <span class="pill">Inventory Strategy</span>
+        <span class="pill">AI Builder</span>
+        <span class="pill">Amsterdam</span>
+      </div>
+    </div>
+
+    <a href="#football" class="hero-cta rv d5">Explore the Journey &nbsp;↓</a>
+  </div>
+</section>
+
+<!-- CH1: FOOTBALL -->
+<section class="chapter" id="football">
+  <div class="chapter-visual rv-l">
+    <div class="chapter-visual-bg"></div>
+    <div class="chapter-vis-text">FOOT<br>BALL</div>
+    <div class="chapter-num">01</div>
+  </div>
+  <div class="chapter-content rv-r">
+    <div class="chapter-meta">
+      <span class="vdot"></span>Oct 2023 – Present<span class="vdot"></span>Nike EMEA
+    </div>
+    <h2 class="chapter-role">Senior Planner<br>Supply &amp; Inventory</h2>
+    <div class="chapter-co">Football // Hilversum, NL</div>
+    <div class="chapter-tags">
+      <span class="ctag">Supply Strategy</span>
+      <span class="ctag">$3B+ Business</span>
+      <span class="ctag">Short Lead Time</span>
+      <span class="ctag">EMEA</span>
+    </div>
+    <ul class="accs">
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Supply Strategy Leadership</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Lead Supply Strategy for the Football team across $3B+ EMEA business — consolidating insights from Consumer, Merch, Sales &amp; Ops and providing leadership with recommendations on inventory, capacity, and product readiness.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Short Lead Time Program</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Lead supply planning aligning EMEA Planning &amp; Sales with Global Operations to secure factory capacity and material readiness — enabling in-season fast replenishment during key football moments (World Cup, Champions League).</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Buy Sign-Off Report</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Developed and handed over the Buy Sign-Off Report, enabling 40+ planners across EMEA to reduce overbuying and accelerate decision-making.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Coaching &amp; Mentoring</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Coach and mentor Supply planners daily, supporting operations and fostering professional growth within the Football planning team.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CH2: STRATEGY -->
+<section class="chapter reverse" id="strategy">
+  <div class="chapter-visual rv-r">
+    <div class="chapter-visual-bg"></div>
+    <div class="chapter-vis-text">STRA<br>TEGY</div>
+    <div class="chapter-num">02</div>
+  </div>
+  <div class="chapter-content rv-l">
+    <div class="chapter-meta">
+      <span class="vdot"></span>Sep 2022 – Oct 2023<span class="vdot"></span>Nike EMEA
+    </div>
+    <h2 class="chapter-role">Manager Strategic<br>Operations &amp; Inventory</h2>
+    <div class="chapter-co">Nike EMEA // Hilversum, NL</div>
+    <div class="chapter-tags">
+      <span class="ctag">$8.9B Inventory</span>
+      <span class="ctag">17.5 WoS Target</span>
+      <span class="ctag">50-Person Team</span>
+      <span class="ctag">Maxime Award</span>
+    </div>
+    <ul class="accs">
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">FY23 Inventory Strategy</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Directed execution of Nike's FY23 inventory strategy in EMEA, managing $8.9B inventory and achieving a 17.5 Weeks of Supply target — contributing to a 15% reduction in overstock post-Covid. Recognized with the Maxime Award for outstanding performance.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">SIP Business Reviews</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Led SIP Weekly Business Reviews for a 50-person team, linking performance results to Nike and team strategy and driving alignment across stakeholders.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">97% Engagement Score</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Led Development Days for a 50-person team tailored to build communication and feedback skills. Achieved a 97% score in the annual Employee Engagement Survey.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CH3: PREMIUM -->
+<section class="chapter" id="premium">
+  <div class="chapter-visual rv-l">
+    <div class="chapter-visual-bg"></div>
+    <div class="chapter-vis-text">PRE<br>MIUM</div>
+    <div class="chapter-num">03</div>
+  </div>
+  <div class="chapter-content rv-r">
+    <div class="chapter-meta">
+      <span class="vdot"></span>Jul 2021 – Sep 2022<span class="vdot"></span>Nike EMEA
+    </div>
+    <h2 class="chapter-role">Senior Planner<br>Premium Collabs</h2>
+    <div class="chapter-co">Supply &amp; Inventory // Hilversum, NL</div>
+    <div class="chapter-tags">
+      <span class="ctag">$800M Portfolio</span>
+      <span class="ctag">200+ SKUs</span>
+      <span class="ctag">Off-White</span>
+      <span class="ctag">Travis Scott</span>
+    </div>
+    <ul class="accs">
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">High-Profile Launch Planning</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Managed end-to-end supply planning for premium collaborations including Off-White and Travis Scott — overseeing an $800M+ portfolio and 200+ SKUs across EMEA markets, ensuring full coverage and accelerated sell-through during first week of release.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Cross-Functional Execution</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Collaborated with Consumer Planning, Global Operations, and Marketing to optimize launch execution and inventory flow across multiple channels.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">SAP-Connected Analysis Tool</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Built an Excel template connecting SAP data for faster analysis — improving buy accuracy and reducing manual workload across the planning team.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CH4: CONVERSE -->
+<section class="chapter reverse" id="converse">
+  <div class="chapter-visual rv-r">
+    <div class="chapter-visual-bg"></div>
+    <div class="chapter-vis-text">CON<br>VERSE</div>
+    <div class="chapter-num">04</div>
+  </div>
+  <div class="chapter-content rv-l">
+    <div class="chapter-meta">
+      <span class="vdot"></span>Sep 2018 – Jul 2021<span class="vdot"></span>Converse EMEA (Nike Inc)
+    </div>
+    <h2 class="chapter-role">Inventory<br>Management Lead</h2>
+    <div class="chapter-co">Converse EMEA // Hilversum, NL</div>
+    <div class="chapter-tags">
+      <span class="ctag">~20M Units</span>
+      <span class="ctag">~$800M Revenue</span>
+      <span class="ctag">5-Person Team Lead</span>
+      <span class="ctag">Read &amp; React</span>
+    </div>
+    <ul class="accs">
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Acting Team Lead</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Led a 5-person Supply &amp; Inventory team during an 8+ month managerial vacancy, overseeing ~20M units and ~$800M in annual revenue for Converse EMEA. Earned milestone recognition for operational excellence.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Read &amp; React Program</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Drove the "Read &amp; React" program for Chuck Taylor — enabling short lead-time supply through strategic material procurement and agile planning, reducing time-to-market and capturing incremental demand.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">EMEA Coverage Report</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Developed a coverage report adopted by the entire EMEA team of 500+ people, delivering improved supply chain visibility across the organization.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CH5: ORIGINS -->
+<section class="chapter" id="origins">
+  <div class="chapter-visual rv-l">
+    <div class="chapter-visual-bg"></div>
+    <div class="chapter-vis-text">ORI<br>GINS</div>
+    <div class="chapter-num">05</div>
+  </div>
+  <div class="chapter-content rv-r">
+    <div class="chapter-meta">
+      <span class="vdot"></span>2014 – 2018<span class="vdot"></span>Converse · SIT Logistics · JOMC Olsa
+    </div>
+    <h2 class="chapter-role">Supply Chain<br>Foundations</h2>
+    <div class="chapter-co">Inbound · Logistics · Engineering</div>
+    <div class="chapter-tags">
+      <span class="ctag">Inbound Flows</span>
+      <span class="ctag">3PL Management</span>
+      <span class="ctag">Lean Manufacturing</span>
+      <span class="ctag">BMW Benchmark</span>
+    </div>
+    <ul class="accs">
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Converse Inbound Specialist</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">Managed Converse EMEA inbound flow (vessel/airfreight) from global sources to ELC, leading communication with 3PL partners during Monthly Business Reviews.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">BMW-Approved Layout Design</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">At JOMC Olsa in Haining, China — designed a new production department layout later approved by BMW as a benchmark for industry best practices. Measured takt time, improved idle time inefficiencies, and optimized resource usage.</div>
+      </li>
+      <li class="acc">
+        <div class="acc-hd" onclick="tog(this)">
+          <span class="acc-title">Education</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">MSc Industrial Production &amp; Technological Innovation Engineering with full marks — Politecnico di Torino. MBA at UIC Barcelona. BSc from Politecnico di Torino. Higher Certificate in Business, AIT Athlone. Built across Turin, Barcelona, and Ireland.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="impact-label-top rv">By the Numbers</div>
+  <h2 class="impact-title rv d1">Impact<br>at a Glance</h2>
+  <div class="impact-grid">
+    <div class="istat rv d1"><div class="istat-num">$3B+</div><div class="istat-desc">Football EMEA supply portfolio led as Senior Planner</div></div>
+    <div class="istat rv d2"><div class="istat-num">$8.9B</div><div class="istat-desc">Inventory managed during Nike FY23 EMEA strategy</div></div>
+    <div class="istat rv d3"><div class="istat-num">15%</div><div class="istat-desc">Reduction in EMEA overstock post-Covid</div></div>
+    <div class="istat rv d4"><div class="istat-num">500+</div><div class="istat-desc">EMEA colleagues using the coverage report built from scratch</div></div>
+    <div class="istat rv d5"><div class="istat-num">40+</div><div class="istat-desc">Planners empowered by the Buy Sign-Off Report</div></div>
+    <div class="istat rv d6"><div class="istat-num">97%</div><div class="istat-desc">Employee engagement score leading a 50-person team</div></div>
+    <div class="istat rv d7"><div class="istat-num">9 Yrs</div><div class="istat-desc">Nike &amp; Converse EMEA across 5 roles and 3 business areas</div></div>
+    <div class="istat rv d8"><div class="istat-num">$800M</div><div class="istat-desc">Premium collab portfolio — Off-White, Travis Scott &amp; more</div></div>
+    <div class="istat rv d9"><div class="istat-num">4 Lang</div><div class="istat-desc">Italian · English · Spanish · Dutch — built for global teams</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2 class="footer-name rv">Giorgio<br>Saracco</h2>
+  <div class="footer-links rv d1">
+    <a href="mailto:saracco249@gmail.com">saracco249@gmail.com</a>
+    <a href="tel:+31615594903">+31 615 594 903</a>
+    <a>Amsterdam, NL</a>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 · Supply Chain &amp; Operations · Nike EMEA</span>
+    <span class="footer-copy">Built with AI · Cursor</span>
+  </div>
+</footer>
+
+<script>
+// Sticky nav
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  // active link highlight
+  const sections = ['football','strategy','premium','converse','origins','impact'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 240) current = id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+});
+
+// Accordion
+function tog(hd) {
+  const item = hd.parentElement;
+  const wasOpen = item.classList.contains('open');
+  // close siblings
+  item.closest('.accs').querySelectorAll('.acc.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const revEls = document.querySelectorAll('.rv, .rv-l, .rv-r');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+revEls.forEach(el => io.observe(el));
+
+// Instant reveal for hero
+setTimeout(() => {
+  document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('in'));
+}, 80);
+</script>
+</body>
+</html>
