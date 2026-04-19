@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giorgio Saracco | Supply Chain & Operations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">GS</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#early">Early Career</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#beyond">Beyond</a></li>
+      <li><a href="#impact">Impact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div style="position: relative; z-index: 2;">
+      <div class="hero-eyebrow rv d1">Supply Chain &amp; Operations · Nike EMEA · Amsterdam</div>
+      <h1 class="hero-name rv d2">
+        <span class="first">Giorgio</span>
+        <span class="last">Saracco</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-desc rv d3">9 years building supply chain excellence at Nike and Converse EMEA — from premium sneaker launches to Football's $3B+ business. Passionate about using AI to turn complex problems into fast, smart decisions.</p>
+        <div>
+          <div class="hero-pills rv d4">
+            <span class="pill">EMEA</span>
+            <span class="pill">Inventory Strategy</span>
+            <span class="pill">Supply Planning</span>
+            <span class="pill">AI Builder</span>
+            <span class="pill">Amsterdam, NL</span>
+          </div>
+          <a href="#journey" class="hero-cta rv d5">Explore the Journey <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey" class="journey">
+    <div class="journey-header">
+      <div class="section-eyebrow rv">Nike &amp; Converse EMEA</div>
+      <h2 class="section-title rv d1">Nine Years.<br>One Journey.</h2>
+      <p class="journey-subtitle rv d2">From intern to leading supply strategy for one of Nike's biggest EMEA businesses — a career built role by role, decision by decision.</p>
+    </div>
+
+    <div class="timeline rv d3">
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Oct 2023<br>Present</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-nike">Nike EMEA</span>
+          <div class="tl-role">Senior Planner, Supply &amp; Inventory Football</div>
+          <div class="tl-sub">Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Lead Supply Strategy for the Football team across a $3B EMEA business, providing leadership with recommendations on inventory, capacity, and product readiness.</li>
+            <li>Led supply planning for Short Lead Time program, securing factory capacity for in-season fast replenishment during World Cup and Champions League.</li>
+            <li>Developed the Buy Sign-Off Report adopted by 40 planners to reduce overbuying and accelerate decisions.</li>
+            <li>Influenced Global Football Apparel Supply strategy, aligning seasonal priorities and campaign launches with global capacity planning.</li>
+            <li>Coach and mentor Supply planners, supporting daily operations and professional growth.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Sep 2022<br>Oct 2023</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-nike">Nike EMEA</span>
+          <div class="tl-role">Manager, Strategic Operations &amp; Inventory</div>
+          <div class="tl-sub">Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Directed Nike's FY23 inventory strategy in EMEA, managing $8.9B inventory and achieving a 17.5 Weeks of Supply target, contributing to a 15% overstock reduction post-Covid.</li>
+            <li>Recognized with the Maxime Award for outstanding performance.</li>
+            <li>Led SIP Weekly Business Reviews for a 50-person team, driving alignment across stakeholders.</li>
+            <li>Achieved 97% score in annual Employee Engagement Survey after leading Development Days focused on communication and feedback skills.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Jul 2021<br>Sep 2022</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-nike">Nike EMEA</span>
+          <div class="tl-role">Senior Planner, Supply &amp; Inventory Premium Collabs</div>
+          <div class="tl-sub">Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Managed end-to-end supply planning for premium collaborations (Off-White, Travis Scott), overseeing an $800M portfolio and 200 SKUs across EMEA.</li>
+            <li>Ensured full market coverage and accelerated sell-through during first week of release for every major launch.</li>
+            <li>Built an Excel template connecting SAP data for faster analysis, improving buy accuracy and cutting manual workload.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Sep 2018<br>Jul 2021</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-converse">Converse EMEA</span>
+          <div class="tl-role">Specialist, Inventory Management Manager Stretch</div>
+          <div class="tl-sub">Nike Inc, Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Led a 5-person team for 8 months during a managerial vacancy, overseeing 20M units and $800M in annual revenue. Earned milestone recognition for operational excellence.</li>
+            <li>Drove the Read &amp; React program for Chuck Taylor, enabling short lead-time supply and reducing time-to-market.</li>
+            <li>Developed a coverage report adopted by the entire EMEA team of 500 people.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Sep 2017<br>Sep 2018</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-converse">Converse EMEA</span>
+          <div class="tl-role">Specialist, Supply Chain Inbound</div>
+          <div class="tl-sub">Nike Inc, Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Responsible for Converse EMEA inbound flow (vessel/airfreight) from global sources to ELC.</li>
+            <li>Led communication with 3PL partners during Monthly Business Reviews.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date-col"><div class="tl-year">Mar 2017<br>Aug 2017</div></div>
+        <div class="tl-content-col">
+          <span class="tl-company-tag tag-converse">Converse EMEA</span>
+          <div class="tl-role">Intern, Inventory Management</div>
+          <div class="tl-sub">Nike Inc, Hilversum, NL</div>
+          <button class="tl-toggle" onclick="togTl(this)">Details <span class="arrow">▾</span></button>
+          <ul class="tl-bullets">
+            <li>Worked with multiple stakeholders across Geos to ensure best possible order delivery dates.</li>
+            <li>Simplified communication between sources in Asia and accounts across EMEA.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="early" class="early">
+    <div class="section-eyebrow rv">Before Nike</div>
+    <h2 class="section-title rv d1">Early<br>Career</h2>
+    <p class="journey-subtitle rv d2" style="margin-top: 16px;">Two formative experiences that shaped how I think about operations, quality, and efficiency — before the world of footwear.</p>
+
+    <div class="early-grid rv d3">
+      <div class="early-card">
+        <div class="early-card-bg-text">SIT</div>
+        <div class="early-card-label">Jun 2014 – Aug 2014</div>
+        <div class="early-card-co">SIT Logistics</div>
+        <div class="early-card-loc">Turin, Italy · Business Analyst</div>
+        <ul class="early-bullets">
+          <li>Analyzed Logistics &amp; Quality Service performance and specific management systems.</li>
+          <li>Supported operational decision-making through detailed process and data analysis.</li>
+          <li>First hands-on experience connecting data to business decisions — a thread that runs through everything since.</li>
+        </ul>
+      </div>
+
+      <div class="early-card">
+        <div class="early-card-bg-text">BMW</div>
+        <div class="early-card-label">Jun 2014 – Aug 2014</div>
+        <div class="early-card-co">JOMC Olsa</div>
+        <div class="early-card-loc">Haining, China · Production Engineer</div>
+        <ul class="early-bullets">
+          <li>Designed a new production department layout later approved by BMW as a benchmark for industry best practices.</li>
+          <li>Measured takt time, improved idle time inefficiencies, and optimized resource usage for better workflow.</li>
+          <li>First international experience working on the factory floor in China, straight out of university.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="education">
+    <div class="section-eyebrow rv">Academic Background</div>
+    <h2 class="section-title rv d1">Education</h2>
+    <p class="journey-subtitle rv d2" style="margin-top: 16px;">Four institutions, four countries, four years — a deliberately international academic journey built around engineering, business, and curiosity.</p>
+
+    <div class="edu-grid rv d3">
+      <div class="edu-card">
+        <div class="edu-card-num">MSc</div>
+        <div class="edu-year-badge">2017</div>
+        <div class="edu-degree">MSc Industrial Production &amp; Technological Innovation Engineering</div>
+        <div class="edu-school">Politecnico di Torino</div>
+        <div class="edu-location">Turin, Italy</div>
+        <span class="edu-badge">Full Marks</span>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-card-num">MBA</div>
+        <div class="edu-year-badge">2016</div>
+        <div class="edu-degree">Master in Business Administration &amp; Industrial Production Systems</div>
+        <div class="edu-school">UIC Barcelona</div>
+        <div class="edu-location">Barcelona, Spain</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-card-num">BSc</div>
+        <div class="edu-year-badge">2015</div>
+        <div class="edu-degree">BSc in Industrial Production Engineering</div>
+        <div class="edu-school">Politecnico di Torino</div>
+        <div class="edu-location">Turin, Italy</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-card-num">HC</div>
+        <div class="edu-year-badge">2014</div>
+        <div class="edu-degree">Higher Certificate in Business</div>
+        <div class="edu-school">AIT – Athlone Institute of Technology</div>
+        <div class="edu-location">Athlone, Ireland</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beyond" class="beyond">
+    <div class="section-eyebrow rv">Outside of Work</div>
+    <h2 class="section-title rv d1">Beyond<br>the Desk</h2>
+    <p class="journey-subtitle rv d2" style="margin-top: 16px;">The same qualities that make a good planner — discipline, strategy, resilience — show up everywhere else too.</p>
+
+    <div class="beyond-grid rv d3">
+      <div class="beyond-card">
+        <span class="beyond-icon">🏃</span>
+        <div class="beyond-card-title">Marathon Runner</div>
+        <div class="beyond-card-stat">Paris 2022 · 3h 30min</div>
+        <div class="beyond-card-desc">Completing a marathon is about pacing, planning, and not quitting when it gets hard. Familiar territory.</div>
+      </div>
+
+      <div class="beyond-card">
+        <span class="beyond-icon">🏆</span>
+        <div class="beyond-card-title">Futsal Champion</div>
+        <div class="beyond-card-stat">CUS Tournament · 120 Teams · Team Captain</div>
+        <div class="beyond-card-desc">Led the team as captain to championship across a 120-team tournament. Competitive, team-oriented, and always looking for the winning play.</div>
+      </div>
+
+      <div class="beyond-card">
+        <span class="beyond-icon">♟️</span>
+        <div class="beyond-card-title">Chess Player</div>
+        <div class="beyond-card-stat">1700 ELO Rating</div>
+        <div class="beyond-card-desc">1700 ELO puts you in the top 5% of rated players. Chess teaches patience, long-term thinking, and the cost of reactive decisions.</div>
+      </div>
+
+      <div class="beyond-card">
+        <span class="beyond-icon">🏄</span>
+        <div class="beyond-card-title">Surfer</div>
+        <div class="beyond-card-stat">Reading waves, adapting fast</div>
+        <div class="beyond-card-desc">Surfing is all about reading unpredictable conditions and reacting in real time. Not unlike managing supply in volatile markets.</div>
+      </div>
+
+      <div class="beyond-card">
+        <span class="beyond-icon">🎸</span>
+        <div class="beyond-card-title">Guitar</div>
+        <div class="beyond-card-stat">Creative outlet</div>
+        <div class="beyond-card-desc">Music is the counterbalance to spreadsheets. Structure and creativity in equal measure — which is honestly also a good description of supply planning.</div>
+      </div>
+
+      <div class="beyond-card">
+        <span class="beyond-icon">🤖</span>
+        <div class="beyond-card-title">AI Builder</div>
+        <div class="beyond-card-stat">Macros · Agents · Apps · This Website</div>
+        <div class="beyond-card-desc">Not a developer by trade, but building with AI every day — from automations that save hours to tools adopted by entire teams. Curiosity is the only requirement.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="impact">
+    <div class="impact-eyebrow rv">By the Numbers</div>
+    <h2 class="impact-title rv d1">Impact<br>at a Glance</h2>
+
+    <div class="impact-grid">
+      <div class="istat rv d1"><div class="istat-num">$3B</div><div class="istat-desc">Football EMEA supply portfolio led as Senior Planner</div></div>
+      <div class="istat rv d2"><div class="istat-num">$8.9B</div><div class="istat-desc">Inventory managed during Nike FY23 EMEA strategy</div></div>
+      <div class="istat rv d3"><div class="istat-num">15%</div><div class="istat-desc">Reduction in EMEA overstock post-Covid</div></div>
+      <div class="istat rv d4"><div class="istat-num">500</div><div class="istat-desc">EMEA colleagues using the coverage report I built</div></div>
+      <div class="istat rv d5"><div class="istat-num">40</div><div class="istat-desc">Planners empowered by the Buy Sign-Off Report</div></div>
+      <div class="istat rv d6"><div class="istat-num">97%</div><div class="istat-desc">Employee engagement score leading a 50-person team</div></div>
+      <div class="istat rv d7"><div class="istat-num">9 Yrs</div><div class="istat-desc">Nike &amp; Converse EMEA · 6 roles, 3 business areas</div></div>
+      <div class="istat rv d8"><div class="istat-num">4 Lang</div><div class="istat-desc">Italian · English · Spanish · Dutch</div></div>
+      <div class="istat rv d9"><div class="istat-num">1700</div><div class="istat-desc">Chess ELO · strategic thinking, on and off the board</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <h2 class="footer-name rv">Giorgio<br>Saracco</h2>
+    <div class="footer-links rv d1">
+      <a href="mailto:saracco249@gmail.com">saracco249@gmail.com</a>
+      <a href="tel:+31615594903">+31 615 594 903</a>
+      <a href="#">Amsterdam, NL</a>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">2025 · Supply Chain &amp; Operations · Nike EMEA</span>
+      <span class="footer-copy">Built with AI &amp; Cursor</span>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
